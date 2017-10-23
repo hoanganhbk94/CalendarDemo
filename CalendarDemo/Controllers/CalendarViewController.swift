@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, EventViewDelegate {
     
     let cellIdentifier = "CalendarViewCell"
     let formatter = DateFormatter()
@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var eventView: EventView!
     
     @IBOutlet weak var heightEventViewConstraint: NSLayoutConstraint!
     
@@ -25,6 +26,7 @@ class CalendarViewController: UIViewController {
  
         self.calendarView.register(UINib(nibName: "CalendarViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.setupCalendarView()
+        self.eventView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,12 @@ class CalendarViewController: UIViewController {
     func handleCellTextColor(cell: JTAppleCell?, cellState: CellState) {
         guard let validCell = cell as? CalendarViewCell else { return }
         validCell.dateLabel.textColor = (cellState.dateBelongsTo == .thisMonth) ? Colors.dateColor : Colors.otherDataColor
+    }
+    
+    // MARK: -  Eventview delegate
+    
+    func didSelectItem(view: EventView, index: Int) {
+        print(index)
     }
 
 }

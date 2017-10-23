@@ -101,13 +101,13 @@
 			path = "\U0010Common";
 			sourceTree = "<group>";
 		};
-		AB787FFF1F99D02300D03327 /* EventView */ = {
+		AB787FFF1F99D02300D03327 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				AB8902DB1F9DA70000C4899F /* EventView.swift */,
 				AB8902DD1F9DA70B00C4899F /* EventView.xib */,
 			);
-			path = EventView;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		ABB11EFF1F98B11100791739 = {
@@ -136,7 +136,7 @@
 				ABB11F0B1F98B11100791739 /* AppDelegate.swift */,
 				AB787FFA1F99A29D00D03327 /* Common */,
 				ABB11F2B1F98B16200791739 /* Controllers */,
-				AB787FFF1F99D02300D03327 /* EventView */,
+				AB787FFF1F99D02300D03327 /* CustomView */,
 				ABB11F121F98B11200791739 /* Assets.xcassets */,
 				ABB11F141F98B11200791739 /* LaunchScreen.storyboard */,
 				ABB11F171F98B11200791739 /* Info.plist */,

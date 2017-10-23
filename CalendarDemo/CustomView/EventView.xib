@@ -9,7 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="CalendarDemo" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView" customModule="CalendarDemo" customModuleProvider="target">
+            <connections>
+                <outletCollection property="arrButtons" destination="yap-ZO-M8b" collectionClass="NSMutableArray" id="hHQ-Zr-ban"/>
+                <outletCollection property="arrButtons" destination="51i-K4-07K" collectionClass="NSMutableArray" id="3rf-dn-3MJ"/>
+                <outletCollection property="arrButtons" destination="14I-70-YSa" collectionClass="NSMutableArray" id="bj3-qs-jYO"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="307" height="101"/>
@@ -24,26 +30,35 @@
                             <state key="normal" title="DAY">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="didSelectButtonAction:" destination="-1" eventType="touchUpInside" id="iQT-n3-uig"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51i-K4-07K">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51i-K4-07K">
                             <rect key="frame" x="72" y="0.0" width="100.5" height="101"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="WEEK">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="didSelectButtonAction:" destination="-1" eventType="touchUpInside" id="A3C-IL-9uz"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14I-70-YSa">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14I-70-YSa">
                             <rect key="frame" x="172.5" y="0.0" width="134.5" height="101"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="MONTH">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="didSelectButtonAction:" destination="-1" eventType="touchUpInside" id="rxQ-Fp-3zY"/>
+                            </connections>
                         </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="cbX-iy-Oh3"/>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0py-qb-iaD" secondAttribute="bottom" id="a3p-M0-mW0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0py-qb-iaD" secondAttribute="trailing" id="cWr-bf-og5"/>
