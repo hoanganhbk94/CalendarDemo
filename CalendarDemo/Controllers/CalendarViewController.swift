@@ -9,24 +9,19 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarViewController: UIViewController, EventViewDelegate {
+class CalendarViewController: UIViewController {
     
     let cellIdentifier = "CalendarViewCell"
     let formatter = DateFormatter()
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var eventView: EventView!
-    
-    @IBOutlet weak var heightEventViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
  
         self.calendarView.register(UINib(nibName: "CalendarViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.setupCalendarView()
-        self.eventView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +30,7 @@ class CalendarViewController: UIViewController, EventViewDelegate {
     }
     
     func setupCalendarView() {
-        self.calendarView.minimumLineSpacing = 0.0
+        self.calendarView.minimumLineSpacing = 2.0
         self.calendarView.minimumInteritemSpacing = 0.0
         
         self.calendarView.visibleDates { visibleDates in
@@ -46,10 +41,8 @@ class CalendarViewController: UIViewController, EventViewDelegate {
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo ) {
         let date = visibleDates.monthDates.first!.date
         
-        formatter.dateFormat = "MMMM"
+        formatter.dateFormat = "MMM YYYY"
         self.monthLabel.text = formatter.string(from: date)
-        formatter.dateFormat = "YYYY"
-        self.yearLabel.text = formatter.string(from: date)
     }
     
     func handleCellSelected(cell: JTAppleCell?, cellState: CellState) {
@@ -62,12 +55,16 @@ class CalendarViewController: UIViewController, EventViewDelegate {
         validCell.dateLabel.textColor = (cellState.dateBelongsTo == .thisMonth) ? Colors.dateColor : Colors.otherDataColor
     }
     
-    // MARK: -  Eventview delegate
+    // MARK: - Action
     
-    func didSelectItem(view: EventView, index: Int) {
-        print(index)
+    @IBAction func previousMonthButtonAction(_ sender: Any) {
+        self.calendarView.scrollToSegment(.previous)
     }
-
+    
+    @IBAction func nextMonthButtonAction(_ sender: Any) {
+        self.calendarView.scrollToSegment(.next)
+    }
+    
 }
 
 extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
@@ -103,10 +100,10 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         self.handleCellSelected(cell: cell, cellState: cellState)
         self.handleCellTextColor(cell: cell, cellState: cellState)
-        self.heightEventViewConstraint.constant = (cell as! CalendarViewCell).isEvent ? 100.0 : 0.0
-        UIView.animate(withDuration: 0.25) {
-            self.view.layoutIfNeeded()
-        }
+//        self.heightEventViewConstraint.constant = (cell as! CalendarViewCell).isEvent ? 100.0 : 0.0
+//        UIView.animate(withDuration: 0.25) {
+//            self.view.layoutIfNeeded()
+//        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {

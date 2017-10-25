@@ -22,9 +22,10 @@ class CalendarViewCell: JTAppleCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let sizeSelectedCell: CGFloat = UIScreen.main.bounds.width / 7.0 - 10.0
-        self.widthSelectedCellConstraint.constant = sizeSelectedCell
-        self.selectedView.layer.cornerRadius = sizeSelectedCell / 2
+        let widthCell: CGFloat = UIScreen.main.bounds.width / 7.0
+        let heightCell: CGFloat = (UIScreen.main.bounds.height - 169.0) / 6.0
+        self.widthSelectedCellConstraint.constant = widthCell > heightCell ? heightCell - 5.0 : widthCell - 5.0
+        self.selectedView.layer.cornerRadius = self.widthSelectedCellConstraint.constant / 2
     }
     
     func updateContentCalendarCell(cell: JTAppleCell, cellState: CellState, isEvent: Bool) {

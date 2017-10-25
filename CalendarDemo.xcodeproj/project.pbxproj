@@ -12,8 +12,6 @@
 		AB787FF91F999B9000D03327 /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB787FF71F999B9000D03327 /* CalendarViewCell.xib */; };
 		AB787FFC1F99A2BF00D03327 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB787FFB1F99A2BF00D03327 /* Colors.swift */; };
 		AB787FFE1F99AF2D00D03327 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB787FFD1F99AF2D00D03327 /* Constants.swift */; };
-		AB8902DC1F9DA70000C4899F /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8902DB1F9DA70000C4899F /* EventView.swift */; };
-		AB8902DE1F9DA70B00C4899F /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8902DD1F9DA70B00C4899F /* EventView.xib */; };
 		AB8902E01F9DAB8600C4899F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8902DF1F9DAB8600C4899F /* Extension.swift */; };
 		ABB11F0C1F98B11100791739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB11F0B1F98B11100791739 /* AppDelegate.swift */; };
 		ABB11F131F98B11200791739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB11F121F98B11200791739 /* Assets.xcassets */; };
@@ -42,8 +40,6 @@
 		AB787FF71F999B9000D03327 /* CalendarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
 		AB787FFB1F99A2BF00D03327 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		AB787FFD1F99AF2D00D03327 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		AB8902DB1F9DA70000C4899F /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
-		AB8902DD1F9DA70B00C4899F /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventView.xib; sourceTree = "<group>"; };
 		AB8902DF1F9DAB8600C4899F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		ABB11F081F98B11100791739 /* CalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB11F0B1F98B11100791739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,15 +97,6 @@
 			path = "\U0010Common";
 			sourceTree = "<group>";
 		};
-		AB787FFF1F99D02300D03327 /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				AB8902DB1F9DA70000C4899F /* EventView.swift */,
-				AB8902DD1F9DA70B00C4899F /* EventView.xib */,
-			);
-			path = CustomView;
-			sourceTree = "<group>";
-		};
 		ABB11EFF1F98B11100791739 = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +123,6 @@
 				ABB11F0B1F98B11100791739 /* AppDelegate.swift */,
 				AB787FFA1F99A29D00D03327 /* Common */,
 				ABB11F2B1F98B16200791739 /* Controllers */,
-				AB787FFF1F99D02300D03327 /* CustomView */,
 				ABB11F121F98B11200791739 /* Assets.xcassets */,
 				ABB11F141F98B11200791739 /* LaunchScreen.storyboard */,
 				ABB11F171F98B11200791739 /* Info.plist */,
@@ -263,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB11F161F98B11200791739 /* LaunchScreen.storyboard in Resources */,
-				AB8902DE1F9DA70B00C4899F /* EventView.xib in Resources */,
 				ABB11F131F98B11200791739 /* Assets.xcassets in Resources */,
 				AB787FF91F999B9000D03327 /* CalendarViewCell.xib in Resources */,
 				ABB11F2F1F98B1AB00791739 /* CalendarViewController.xib in Resources */,
@@ -381,7 +366,6 @@
 				AB787FF81F999B9000D03327 /* CalendarViewCell.swift in Sources */,
 				AB8902E01F9DAB8600C4899F /* Extension.swift in Sources */,
 				AB787FFC1F99A2BF00D03327 /* Colors.swift in Sources */,
-				AB8902DC1F9DA70000C4899F /* EventView.swift in Sources */,
 				ABB11F2E1F98B1AB00791739 /* CalendarViewController.swift in Sources */,
 				ABB11F0C1F98B11100791739 /* AppDelegate.swift in Sources */,
 			);
@@ -532,6 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W562J2HLT;
 				INFOPLIST_FILE = CalendarDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eastgate.example.CalendarDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,6 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W562J2HLT;
 				INFOPLIST_FILE = CalendarDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eastgate.example.CalendarDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
