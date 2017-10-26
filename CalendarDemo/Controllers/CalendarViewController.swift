@@ -16,6 +16,7 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var eventView: EventView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class CalendarViewController: UIViewController {
     }
     
     func setupCalendarView() {
-        self.calendarView.minimumLineSpacing = 2.0
+        self.calendarView.minimumLineSpacing = 0.0
         self.calendarView.minimumInteritemSpacing = 0.0
         
         self.calendarView.visibleDates { visibleDates in
@@ -100,6 +101,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         self.handleCellSelected(cell: cell, cellState: cellState)
         self.handleCellTextColor(cell: cell, cellState: cellState)
+        
+        self.eventView.didReceiveCalendarEvent(cell: (cell as! CalendarViewCell), day: cellState.day.rawValue)
 //        self.heightEventViewConstraint.constant = (cell as! CalendarViewCell).isEvent ? 100.0 : 0.0
 //        UIView.animate(withDuration: 0.25) {
 //            self.view.layoutIfNeeded()
