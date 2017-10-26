@@ -13,6 +13,8 @@ class CalendarViewController: UIViewController {
     
     let cellIdentifier = "CalendarViewCell"
     let formatter = DateFormatter()
+    
+    var isCalendarOneRow: Bool = false
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
@@ -40,10 +42,11 @@ class CalendarViewController: UIViewController {
     }
     
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo ) {
-        let date = visibleDates.monthDates.first!.date
-        
-        formatter.dateFormat = "MMM YYYY"
-        self.monthLabel.text = formatter.string(from: date)
+        if let day = visibleDates.monthDates.first {
+            let date = day.date
+            formatter.dateFormat = "MMM YYYY"
+            self.monthLabel.text = formatter.string(from: date)
+        }
     }
     
     func handleCellSelected(cell: JTAppleCell?, cellState: CellState) {
@@ -86,8 +89,19 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         
         let startDate = formatter.date(from: CalendarDate.startDate)
         let endDate = formatter.date(from: CalendarDate.endDate)
-        let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
-        return parameters
+        // One row or 6 rows
+        if self.isCalendarOneRow {
+            let parameters = ConfigurationParameters(startDate: startDate!,
+                                                     endDate: endDate!,
+                                                     numberOfRows: 1,
+                                                     generateInDates: .forFirstMonthOnly,
+                                                     generateOutDates: .off,
+                                                     hasStrictBoundaries: false)
+            return parameters
+        } else {
+            let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
+            return parameters
+        }
     }
     
     // MARK: - Calendar delegate
